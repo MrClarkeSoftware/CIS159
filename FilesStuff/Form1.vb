@@ -7,17 +7,26 @@
         Public Name As String
         Public Email As String
         Public IsStudent As Boolean
+        Public picture As String
     End Structure
 
     Public Sub show(i As Integer)
-        NameTextBox.Text = peopleArray(i).Name
-        emailTextBox.Text = peopleArray(i).Email
-        StudentCheckBox.Checked = peopleArray(i).IsStudent
+        If i >= 0 And i < count Then
+            NameTextBox.Text = peopleArray(i).Name
+            emailTextBox.Text = peopleArray(i).Email
+            StudentCheckBox.Checked = peopleArray(i).IsStudent
+            If IO.File.Exists(peopleArray(i).picture) Then
+                studentPictureBox.Load(peopleArray(i).picture)
+            Else
+                studentPictureBox.Image = Nothing
+            End If
+        End If
     End Sub
     Public Sub clear()
         NameTextBox.Text = ""
         emailTextBox.Text = ""
         StudentCheckBox.Checked = False
+        studentPictureBox.Image = Nothing
         NameTextBox.Focus()
     End Sub
     Private Sub FirstButton_Click(sender As Object, e As EventArgs) Handles FirstButton.Click
@@ -43,19 +52,17 @@
         End If
     End Sub
 
-    Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
+
+    Private Sub UpdateData(i As Integer)
         Dim p As Person
         p.Name = NameTextBox.Text
         p.Email = emailTextBox.Text
         p.IsStudent = StudentCheckBox.Checked
-        peopleArray(count) = p
-        count = count + 1
-        index = count - 1
-        clear()
-
+        p.picture = studentPictureBox.ImageLocation
+        peopleArray(i) = p
+        Save()
     End Sub
-
-    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+    Sub Save()
         Dim outFile As IO.StreamWriter
         outFile = IO.File.CreateText("people.txt")
 
@@ -65,6 +72,8 @@
             outFile.Write(peopleArray(idx).Email)
             outFile.Write(",")
             outFile.Write(peopleArray(idx).IsStudent)
+            outFile.Write(",")
+            outFile.Write(peopleArray(idx).picture)
             outFile.WriteLine()
         Next
         outFile.Close()
@@ -97,8 +106,9 @@
                 If data.Length > 0 Then p.Name = data(0)
                 If data.Length > 1 Then p.Email = data(1)
                 If data.Length > 2 Then Boolean.TryParse(data(2), p.IsStudent)
+                If data.Length > 3 Then p.picture = data(3)
 
-                peopleArray(index) = p
+                peopleArray(count) = p
                 count = count + 1
 
             Loop
@@ -107,7 +117,68 @@
         index = 0
         show(index)
     End Sub
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        ReadData()
+    End Sub
 
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        'If they hit cancel and the new button was picked then we didn't add one, so subtract the count
+        If Not NewButton.Enabled Then
+            count = count - 1
+            index = count - 1
+        End If
+        EnableDisableControls(False)
+
+        show(index)
+    End Sub
+
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+
+        UpdateData(index)
+        EnableDisableControls(False)
+
+    End Sub
+
+    Private Sub NewButton_Click(sender As Object, e As EventArgs) Handles NewButton.Click
+        clear()
+        count = count + 1
+        index = count - 1
+        EnableDisableControls(True)
+    End Sub
+    Sub EnableDisableControls(b As Boolean)
+        NameTextBox.Enabled = b
+        emailTextBox.Enabled = b
+        StudentCheckBox.Enabled = b
+        FirstButton.Enabled = Not b
+        NextButton.Enabled = Not b
+        LastButton.Enabled = Not b
+        PrevButton.Enabled = Not b
+        NewButton.Enabled = Not b
+        updateButton.Enabled = Not b
+
+        SaveButton.Visible = b
+        CancelButton.Visible = b
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ReadData()
+        EnableDisableControls(False)
+    End Sub
+
+    Private Sub editButton_Click(sender As Object, e As EventArgs) Handles updateButton.Click
+        EnableDisableControls(True)
+        UpdateData(index)
+    End Sub
+
+    Private Sub studentPictureBox_Click(sender As Object, e As EventArgs) Handles studentPictureBox.Click
+        'only let picture be set if the user hit update
+        If updateButton.Enabled = False Then
+            OpenFileDialog1.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+        studentPictureBox.Load(OpenFileDialog1.FileName)
+        UpdateData(index)
     End Sub
 End Class
