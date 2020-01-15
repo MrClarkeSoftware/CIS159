@@ -1,4 +1,5 @@
-a,,False
-b,,False
-c,,False
-d,,True
+A,B,True
+C,D,False
+E,F,False
+E,F,False
+d,d,False

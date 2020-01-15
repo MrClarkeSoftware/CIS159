@@ -76,4 +76,38 @@
         fileTextBox.Text = inFile.ReadToEnd
         inFile.Close()
     End Sub
+
+    Sub ReadData()
+        If IO.File.Exists("people.txt") Then
+            Dim inFile As IO.StreamReader
+            inFile = IO.File.OpenText("people.txt")
+            Dim line As String
+            Dim data() As String
+
+            index = 0
+            count = 0
+            Do While inFile.Peek <> -1
+                Dim p As New Person
+
+                line = inFile.ReadLine
+                data = line.Split(",")
+
+                'Put the data from the file into the structure
+                'Check the length to not try to read more than was in the file
+                If data.Length > 0 Then p.Name = data(0)
+                If data.Length > 1 Then p.Email = data(1)
+                If data.Length > 2 Then Boolean.TryParse(data(2), p.IsStudent)
+
+                peopleArray(index) = p
+                count = count + 1
+
+            Loop
+            inFile.Close()
+        End If
+        index = 0
+        show(index)
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
 End Class

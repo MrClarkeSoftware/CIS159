@@ -34,6 +34,7 @@ Partial Class Form1
         Me.AddButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.fileTextBox = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -140,11 +141,21 @@ Partial Class Form1
         Me.fileTextBox.Size = New System.Drawing.Size(296, 279)
         Me.fileTextBox.TabIndex = 11
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(28, 197)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Read"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(367, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.fileTextBox)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.AddButton)
@@ -176,4 +187,5 @@ Partial Class Form1
     Friend WithEvents AddButton As Button
     Friend WithEvents SaveButton As Button
     Friend WithEvents fileTextBox As TextBox
+    Friend WithEvents Button1 As Button
 End Class
