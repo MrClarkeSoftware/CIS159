@@ -157,7 +157,7 @@ Partial Class Form1
         '
         'updateButton
         '
-        Me.updateButton.Location = New System.Drawing.Point(193, 44)
+        Me.updateButton.Location = New System.Drawing.Point(280, 26)
         Me.updateButton.Name = "updateButton"
         Me.updateButton.Size = New System.Drawing.Size(75, 23)
         Me.updateButton.TabIndex = 15
