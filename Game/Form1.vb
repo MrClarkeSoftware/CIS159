@@ -59,7 +59,7 @@
         pacdirection = dir
 
     End Sub
-    Function move(distx As Integer, disty As Integer, p As PictureBox) As Boolean
+    Function movexy(distx As Integer, disty As Integer, p As PictureBox) As Boolean
         Dim previous As Point = p.Location
 
         p.Location = New Point(p.Location.X + distx, p.Location.Y + disty)
