@@ -59,7 +59,19 @@
         pacdirection = dir
 
     End Sub
+    Function move(distx As Integer, disty As Integer, p As PictureBox) As Boolean
+        Dim previous As Point = p.Location
 
+        p.Location = New Point(p.Location.X + distx, p.Location.Y + disty)
+        'If we ran into a wall put the previous location back
+        If CollidesWithWall(p) Then
+            p.Location = previous
+            Return False
+        End If
+
+        Return True
+
+    End Function
     Function movehorizontal(dist As Integer, p As PictureBox) As Boolean
         Dim previous As Point = p.Location
 
@@ -88,11 +100,11 @@
         For Each PictureBox In Me.Controls
             If PictureBox IsNot p AndAlso p.Bounds.IntersectsWith(PictureBox.Bounds) Then
                 CollidesWithWall = True
-                If p Is Avatar And (
-                   PictureBox Is Ghost1 Or
-                   PictureBox Is Ghost2
-                   ) Then
-                    MessageBox.Show("You loose!")
+                Dim s As String
+                s = p.Name.ToLower & PictureBox.name.tolower
+                Debug.Print(s)
+                If s.Contains("avatar") And s.Contains("ghost") Then
+                    MsgBox("You lose!")
                     ResetGame()
                 End If
                 Return True
@@ -107,6 +119,7 @@
         Timer1.Enabled = False
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Me.BackColor = Color.Black
         Ghost1.Location = points(ghostIndex)
         ghostIndex += 1
         ghostIndex = ghostIndex Mod 100
