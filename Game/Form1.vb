@@ -1,15 +1,19 @@
 ﻿Public Class Form1
     Dim facingLeft As Boolean
     Dim facingUp As Boolean
-    Dim points(99) As Point
+    Dim points(999) As Point
     Dim pacIndex As Integer
     Dim ghostIndex As Integer
     Dim ghostDirection As Integer
     Dim pacdirection As String = "E"
+    Dim score As Integer
+    Dim B1xdir, B1ydir As Integer
+    Dim avatarVert As Integer
 
     Dim r As New Random
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Me.BackColor = Color.Black
         Select Case e.KeyCode
             Case Keys.Left
                 movehorizontal(-10, Avatar)
@@ -23,10 +27,35 @@
             Case Keys.Down
                 ChangeDirection(Avatar, "S")
                 movevertical(10, Avatar)
+            Case Keys.J
+
+            Case Keys.Space
+                If pacdirection = "E" Then
+                    B1.Location = New Point(Avatar.Location.X + 40, Avatar.Location.Y)
+                    B1xdir = 10
+                    B1ydir = 0
+                End If
+                If pacdirection = "W" Then
+                    B1.Location = New Point(Avatar.Location.X - 20, Avatar.Location.Y)
+                    B1xdir = -10
+                    B1ydir = 0
+                End If
+                If pacdirection = "S" Then
+                    B1.Image.RotateFlip(RotateFlipType.Rotate270FlipY)
+                    B1.Location = New Point(Avatar.Location.X, Avatar.Location.Y + 40)
+                    B1xdir = 0
+                    B1ydir = 10
+                End If
+                If pacdirection = "N" Then
+                    B1.Image.RotateFlip(RotateFlipType.Rotate270FlipY)
+                    B1.Location = New Point(Avatar.Location.X, Avatar.Location.Y - 20)
+                    B1xdir = 0
+                    B1ydir = -10
+                End If
         End Select
         points(pacIndex) = Avatar.Location
         pacIndex = pacIndex + 1
-        pacIndex = pacIndex Mod 100
+        pacIndex = pacIndex Mod 1000
 
         'start ghost after 20 moves
         If pacIndex > 20 Then
@@ -97,14 +126,16 @@
     End Function
 
     Function CollidesWithWall(p As PictureBox) As Boolean
-        For Each PictureBox In Me.Controls
-            If PictureBox IsNot p AndAlso p.Bounds.IntersectsWith(PictureBox.Bounds) Then
+        For Each other In Me.Controls
+            If other IsNot p AndAlso p.Bounds.IntersectsWith(other.Bounds) Then
                 CollidesWithWall = True
                 Dim s As String
-                s = p.Name.ToLower & PictureBox.name.tolower
+                s = p.Name.ToLower & other.name.tolower
                 Debug.Print(s)
                 If s.Contains("avatar") And s.Contains("ghost") Then
-                    MsgBox("You lose!")
+                    score = score - 1
+                    ScoreLabel.Text = score
+                    Me.BackColor = Color.Red
                     ResetGame()
                 End If
                 Return True
@@ -121,6 +152,7 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Me.BackColor = Color.Black
         Ghost1.Location = points(ghostIndex)
+        CollidesWithWall(Ghost1)
         ghostIndex += 1
         ghostIndex = ghostIndex Mod 100
         If ghostDirection = 0 Then
@@ -143,5 +175,9 @@
                 ghostDirection = r.Next(0, 4)
             End If
         End If
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        movexy(B1xdir, B1ydir, B1)
     End Sub
 End Class
