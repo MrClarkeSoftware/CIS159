@@ -138,6 +138,15 @@
                     Me.BackColor = Color.Red
                     ResetGame()
                 End If
+                If s.Contains("b1") And s.Contains("ghost") Then
+                    score = score + 1
+                    ScoreLabel.Text = score
+                    If other Is Avatar Then
+                        p.Visible = False
+                    Else
+                        other.visible = False
+                    End If
+                End If
                 Return True
             End If
         Next
