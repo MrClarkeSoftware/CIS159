@@ -133,5 +133,8 @@
   <ItemGroup>
     <None Include="Resources\Bullet1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pokedownload.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

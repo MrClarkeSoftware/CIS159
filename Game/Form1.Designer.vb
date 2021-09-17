@@ -199,6 +199,7 @@ Partial Class Form1
         '
         'Avatar
         '
+        Me.Avatar.BackColor = System.Drawing.Color.Transparent
         Me.Avatar.Image = Global.WindowsApp1.My.Resources.Resources.Pac1
         Me.Avatar.Location = New System.Drawing.Point(40, 241)
         Me.Avatar.Name = "Avatar"
@@ -216,6 +217,8 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.pokedownload
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.B3)
         Me.Controls.Add(Me.B2)
@@ -232,6 +235,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Wall3)
         Me.Controls.Add(Me.Wall1)
         Me.Controls.Add(Me.Avatar)
+        Me.DoubleBuffered = True
         Me.Name = "Form1"
         Me.Text = "Sample"
         CType(Me.B3, System.ComponentModel.ISupportInitialize).EndInit()
