@@ -20,8 +20,8 @@
             Case Keys.J
 
             Case Keys.Space
-                Add(Avatar, B1, "direction", 10)
-                Add(Avatar, B1, "N", 5)
+                ' Add(Avatar, B1, "direction", 10)
+                ' Add(Avatar, B1, "N", 5)
                 Add(Avatar, "jump", 5)
 
         End Select

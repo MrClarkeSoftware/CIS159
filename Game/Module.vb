@@ -1,4 +1,8 @@
 ﻿Module Module1
+    Dim uid As Integer
+    Dim jumpY As Integer
+    Dim jump As Boolean
+
     Public pacdirection As String = "E"
     Dim objs As New Collection
     Dim controls As Control.ControlCollection
@@ -29,17 +33,23 @@
                     movexy(o.path(idx).X, o.path(idx).Y, o.p)
                     If Not o.repeat And idx = o.path.GetUpperBound(0) Then
                         o.p.Tag = "REMOVE"
+                        jumpY = 0
                     Else
                         o.p.Tag = idx + 1
                     End If
 
             End Select
         Next
-        For Each o As Record In objs
+        For idx = 1 To objs.Count
+            Dim o As Record = objs(idx)
+
             If o.p.Tag.ToString = "REMOVE" Then
-                objs.Remove(o.p.Name)
                 o.p.Tag = "0"
-                If o.remove Then controls.Remove(o.p)
+                If o.remove Then
+                    controls.Remove(o.p)
+                End If
+                objs.Remove(idx)
+                Exit For
             End If
         Next
     End Sub
@@ -49,6 +59,9 @@
     Public Sub Add(o As PictureBox, clone As PictureBox, dir As String, speed As Integer)
         Dim r As New Record
         Dim temp As New PictureBox
+        temp.Name = clone.Name
+        temp.BackColor = clone.BackColor
+        temp.SizeMode = clone.SizeMode
         temp.Tag = clone.Name
         temp.Width = clone.Width
         temp.Height = clone.Height
@@ -96,22 +109,19 @@
                 r.ydir = 0
             Case "JUMP"
                 Dim jump(5) As Point
-                jump(0) = New Point(0, -speed)
-                jump(1) = New Point(0, -speed)
-                jump(2) = New Point(0, -speed)
-                jump(3) = New Point(0, speed)
-                jump(4) = New Point(0, speed)
-                jump(5) = New Point(0, speed)
+                'jump(0) = New Point(0, -speed)
+                jump(1) = New Point(0, 1 * -speed)
+                jump(2) = New Point(0, 2 * -speed)
+                jump(3) = New Point(0, 2 * speed)
+                jump(4) = New Point(0, 1 * speed)
+                '  jump(5) = New Point(0, speed)
                 r.path = jump
                 r.repeat = False
         End Select
 
         r.speed = speed
-        If r.p.Name <> "" Then
-            objs.Add(r, r.p.Name)
-        Else
-            objs.Add(r)
-        End If
+        objs.Add(r, r.p.Name & uid)
+        uid += 1
     End Sub
 
 
@@ -166,7 +176,7 @@
     Function movexy(distx As Integer, disty As Integer, p As PictureBox) As Boolean
         Dim previous As Point = p.Location
 
-        p.Location = New Point(p.Location.X + distx, p.Location.Y + disty)
+        p.Location = New Point(p.Location.X + distx, p.Location.Y + disty + jumpY)
         'If we ran into a wall put the previous location back
         If CollidesWithWall(p) Then
             p.Location = previous
