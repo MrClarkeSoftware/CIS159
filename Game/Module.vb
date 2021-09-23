@@ -2,6 +2,7 @@
     Dim uid As Integer
     Dim jumpY As Integer
     Dim jump As Boolean
+    Dim locations As New Collections.ArrayList
 
     Public pacdirection As String = "E"
     Dim objs As New Collection
@@ -19,8 +20,13 @@
     End Structure
     Public Sub SetControls(c As Control.ControlCollection)
         controls = c
+        locations.Add(controls("avatar").Location)
     End Sub
     Public Sub Animate()
+        Dim last As Point = controls("avatar").Location
+        If locations.Count > 0 AndAlso Not last.Equals(locations(locations.Count - 1)) Then
+            locations.Add(last)
+        End If
         For Each o As Record In objs
             Select Case o.dir.ToUpper
                 Case "REMOVE"
@@ -37,7 +43,14 @@
                     Else
                         o.p.Tag = idx + 1
                     End If
-
+                Case "FOLLOW"
+                    Dim idx As Integer
+                    Integer.TryParse(o.p.Tag, idx)
+                    If idx < locations.Count Then
+                        Dim p As Point = locations(idx)
+                        o.p.Location = p
+                        o.p.Tag = idx + 1
+                    End If
             End Select
         Next
         For idx = 1 To objs.Count

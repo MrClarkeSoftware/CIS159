@@ -23,7 +23,7 @@
                 ' Add(Avatar, B1, "direction", 10)
                 ' Add(Avatar, B1, "N", 5)
                 Add(Avatar, "jump", 5)
-
+                Add(Ghost1, "follow", 5)
         End Select
         Me.Refresh()
     End Sub
