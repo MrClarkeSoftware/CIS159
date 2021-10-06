@@ -79,7 +79,7 @@
         temp.Width = clone.Width
         temp.Height = clone.Height
         temp.Image = clone.Image
-        temp.Location = o.Location
+        temp.Location = New Point(o.Location.X, o.Location.Y - o.Height)
         If dir.ToUpper = "JUMP" Then
             temp = o
         End If
