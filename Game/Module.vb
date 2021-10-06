@@ -142,21 +142,17 @@
         Return both.Substring(both.IndexOf(n), n.Length)
     End Function
     Function CollidesWithWall(p As PictureBox) As Boolean
-        'For Each other In controls
-        '    If other IsNot p AndAlso p.Bounds.IntersectsWith(other.Bounds) Then
-        '        CollidesWithWall = True
-        '        Dim s As String
-        '        s = p.Tag & "," & other.tag
-        '        s = s.ToLower
-        '        Debug.Print(s)
-        '        If s.Contains("b1") And s.Contains(",0") Then Return False
+        For Each other In controls
+            If other IsNot p AndAlso other.visible AndAlso p.Bounds.IntersectsWith(other.Bounds) Then
+                CollidesWithWall = True
+                Dim s As String
+                s = p.Tag & "," & other.tag
+                s = s.ToLower
+                Form1.Collision(p, other)
 
-        '        If s.Contains("b1") And s.Contains("ghost") Then
-        '                controls.Remove(controls(other))
-        '            End If
-        '            Return True
-        '    End If
-        'Next
+                Return True
+            End If
+        Next
 
         Return False
     End Function

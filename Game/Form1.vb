@@ -2,8 +2,25 @@
 
     Dim r As New Random
 
+    Sub LeftRight(obj As PictureBox)
+        Dim index As Integer
+        Dim points(4) As Point
+        points(0) = New Point(-5, 0)
+        points(1) = New Point(-5, 0)
+        points(2) = New Point(5, 0)
+        points(3) = New Point(5, 0)
+        Integer.TryParse(obj.Tag, index)
+        '  obj.Location = New Point(obj.Location.X + points(index).X, obj.Location.Y + points(index).Y)
+        movexy(points(index).X, points(index).Y, obj)
+        index = (index + 1) Mod points.Length
+        obj.Tag = index
+    End Sub
+    Public Sub Collision(obj1 As PictureBox, obj2 As PictureBox)
+        Label1.Text = obj1.Name & "," & obj2.Name
+        obj2.Visible = False
+    End Sub
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Me.BackColor = Color.Black
+
         Select Case e.KeyCode
             Case Keys.Left
                 movexy(-10, 0, Avatar)
@@ -31,6 +48,7 @@
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         Animate()
+        LeftRight(Ghost1)
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load

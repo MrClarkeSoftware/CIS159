@@ -38,6 +38,7 @@ Partial Class Form1
         Me.Wall1 = New System.Windows.Forms.PictureBox()
         Me.Avatar = New System.Windows.Forms.PictureBox()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.B1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ghost2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +79,7 @@ Partial Class Form1
         'Ghost2
         '
         Me.Ghost2.Image = Global.WindowsApp1.My.Resources.Resources.ghost
-        Me.Ghost2.Location = New System.Drawing.Point(60, 443)
+        Me.Ghost2.Location = New System.Drawing.Point(418, 344)
         Me.Ghost2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Ghost2.Name = "Ghost2"
         Me.Ghost2.Size = New System.Drawing.Size(57, 57)
@@ -133,7 +134,7 @@ Partial Class Form1
         'Ghost1
         '
         Me.Ghost1.Image = Global.WindowsApp1.My.Resources.Resources.ghost
-        Me.Ghost1.Location = New System.Drawing.Point(60, 443)
+        Me.Ghost1.Location = New System.Drawing.Point(543, 344)
         Me.Ghost1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Ghost1.Name = "Ghost1"
         Me.Ghost1.Size = New System.Drawing.Size(57, 57)
@@ -189,7 +190,7 @@ Partial Class Form1
         '
         Me.Avatar.BackColor = System.Drawing.Color.Transparent
         Me.Avatar.Image = Global.WindowsApp1.My.Resources.Resources.Pac1
-        Me.Avatar.Location = New System.Drawing.Point(60, 371)
+        Me.Avatar.Location = New System.Drawing.Point(608, 344)
         Me.Avatar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Avatar.Name = "Avatar"
         Me.Avatar.Size = New System.Drawing.Size(57, 57)
@@ -202,6 +203,16 @@ Partial Class Form1
         '
         Me.Timer2.Enabled = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.AliceBlue
+        Me.Label1.Location = New System.Drawing.Point(298, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(57, 20)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -210,6 +221,7 @@ Partial Class Form1
         Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.pokedownload
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.B1)
         Me.Controls.Add(Me.ScoreLabel)
         Me.Controls.Add(Me.Ghost2)
@@ -259,4 +271,5 @@ Partial Class Form1
     Friend WithEvents ScoreLabel As Label
     Friend WithEvents B1 As PictureBox
     Friend WithEvents Timer2 As Timer
+    Friend WithEvents Label1 As Label
 End Class
