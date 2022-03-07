@@ -4,11 +4,14 @@
 
     Sub LeftRight(obj As PictureBox)
         Dim index As Integer
-        Dim points(4) As Point
+        Dim points(6) As Point
         points(0) = New Point(-5, 0)
         points(1) = New Point(-5, 0)
         points(2) = New Point(5, 0)
         points(3) = New Point(5, 0)
+        points(4) = New Point(0, 5)
+        points(5) = New Point(0, -5)
+        'Don't change after here
         Integer.TryParse(obj.Tag, index)
         '  obj.Location = New Point(obj.Location.X + points(index).X, obj.Location.Y + points(index).Y)
         movexy(points(index).X, points(index).Y, obj)
@@ -49,6 +52,7 @@
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         Animate()
         LeftRight(Ghost1)
+        LeftRight(Ghost2)
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load

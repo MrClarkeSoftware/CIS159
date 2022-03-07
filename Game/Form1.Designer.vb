@@ -57,20 +57,18 @@ Partial Class Form1
         '
         Me.ScoreLabel.AutoSize = True
         Me.ScoreLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ScoreLabel.Location = New System.Drawing.Point(36, 597)
-        Me.ScoreLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.ScoreLabel.Location = New System.Drawing.Point(24, 388)
         Me.ScoreLabel.Name = "ScoreLabel"
-        Me.ScoreLabel.Size = New System.Drawing.Size(57, 20)
+        Me.ScoreLabel.Size = New System.Drawing.Size(39, 13)
         Me.ScoreLabel.TabIndex = 11
         Me.ScoreLabel.Text = "Label1"
         '
         'B1
         '
         Me.B1.Image = Global.WindowsApp1.My.Resources.Resources.Bullet1
-        Me.B1.Location = New System.Drawing.Point(684, 597)
-        Me.B1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.B1.Location = New System.Drawing.Point(456, 388)
         Me.B1.Name = "B1"
-        Me.B1.Size = New System.Drawing.Size(33, 20)
+        Me.B1.Size = New System.Drawing.Size(22, 13)
         Me.B1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.B1.TabIndex = 12
         Me.B1.TabStop = False
@@ -79,10 +77,9 @@ Partial Class Form1
         'Ghost2
         '
         Me.Ghost2.Image = Global.WindowsApp1.My.Resources.Resources.ghost
-        Me.Ghost2.Location = New System.Drawing.Point(418, 344)
-        Me.Ghost2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Ghost2.Location = New System.Drawing.Point(279, 224)
         Me.Ghost2.Name = "Ghost2"
-        Me.Ghost2.Size = New System.Drawing.Size(57, 57)
+        Me.Ghost2.Size = New System.Drawing.Size(38, 37)
         Me.Ghost2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Ghost2.TabIndex = 10
         Me.Ghost2.TabStop = False
@@ -90,10 +87,9 @@ Partial Class Form1
         'PictureBox4
         '
         Me.PictureBox4.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.PictureBox4.Location = New System.Drawing.Point(36, 54)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox4.Location = New System.Drawing.Point(24, 35)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(15, 471)
+        Me.PictureBox4.Size = New System.Drawing.Size(10, 306)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox4.TabIndex = 9
         Me.PictureBox4.TabStop = False
@@ -101,10 +97,9 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.PictureBox3.Location = New System.Drawing.Point(728, 51)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox3.Location = New System.Drawing.Point(485, 33)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(15, 471)
+        Me.PictureBox3.Size = New System.Drawing.Size(10, 306)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 8
         Me.PictureBox3.TabStop = False
@@ -112,10 +107,9 @@ Partial Class Form1
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.PictureBox2.Location = New System.Drawing.Point(36, 509)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox2.Location = New System.Drawing.Point(24, 331)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(706, 15)
+        Me.PictureBox2.Size = New System.Drawing.Size(471, 10)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 7
         Me.PictureBox2.TabStop = False
@@ -123,10 +117,9 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.PictureBox1.Location = New System.Drawing.Point(36, 51)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Location = New System.Drawing.Point(24, 33)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(706, 15)
+        Me.PictureBox1.Size = New System.Drawing.Size(471, 10)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
@@ -134,10 +127,9 @@ Partial Class Form1
         'Ghost1
         '
         Me.Ghost1.Image = Global.WindowsApp1.My.Resources.Resources.ghost
-        Me.Ghost1.Location = New System.Drawing.Point(543, 344)
-        Me.Ghost1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Ghost1.Location = New System.Drawing.Point(362, 224)
         Me.Ghost1.Name = "Ghost1"
-        Me.Ghost1.Size = New System.Drawing.Size(57, 57)
+        Me.Ghost1.Size = New System.Drawing.Size(38, 37)
         Me.Ghost1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Ghost1.TabIndex = 5
         Me.Ghost1.TabStop = False
@@ -145,10 +137,9 @@ Partial Class Form1
         'Wall2
         '
         Me.Wall2.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.Wall2.Location = New System.Drawing.Point(262, 406)
-        Me.Wall2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Wall2.Location = New System.Drawing.Point(175, 264)
         Me.Wall2.Name = "Wall2"
-        Me.Wall2.Size = New System.Drawing.Size(138, 22)
+        Me.Wall2.Size = New System.Drawing.Size(92, 14)
         Me.Wall2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Wall2.TabIndex = 4
         Me.Wall2.TabStop = False
@@ -156,10 +147,9 @@ Partial Class Form1
         'Wall4
         '
         Me.Wall4.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.Wall4.Location = New System.Drawing.Point(492, 211)
-        Me.Wall4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Wall4.Location = New System.Drawing.Point(328, 137)
         Me.Wall4.Name = "Wall4"
-        Me.Wall4.Size = New System.Drawing.Size(15, 217)
+        Me.Wall4.Size = New System.Drawing.Size(10, 141)
         Me.Wall4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Wall4.TabIndex = 3
         Me.Wall4.TabStop = False
@@ -167,10 +157,9 @@ Partial Class Form1
         'Wall3
         '
         Me.Wall3.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.Wall3.Location = New System.Drawing.Point(369, 211)
-        Me.Wall3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Wall3.Location = New System.Drawing.Point(246, 137)
         Me.Wall3.Name = "Wall3"
-        Me.Wall3.Size = New System.Drawing.Size(138, 22)
+        Me.Wall3.Size = New System.Drawing.Size(92, 14)
         Me.Wall3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Wall3.TabIndex = 2
         Me.Wall3.TabStop = False
@@ -178,10 +167,9 @@ Partial Class Form1
         'Wall1
         '
         Me.Wall1.Image = Global.WindowsApp1.My.Resources.Resources.wall
-        Me.Wall1.Location = New System.Drawing.Point(262, 211)
-        Me.Wall1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Wall1.Location = New System.Drawing.Point(175, 137)
         Me.Wall1.Name = "Wall1"
-        Me.Wall1.Size = New System.Drawing.Size(15, 217)
+        Me.Wall1.Size = New System.Drawing.Size(10, 141)
         Me.Wall1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Wall1.TabIndex = 1
         Me.Wall1.TabStop = False
@@ -190,10 +178,9 @@ Partial Class Form1
         '
         Me.Avatar.BackColor = System.Drawing.Color.Transparent
         Me.Avatar.Image = Global.WindowsApp1.My.Resources.Resources.Pac1
-        Me.Avatar.Location = New System.Drawing.Point(608, 344)
-        Me.Avatar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Avatar.Location = New System.Drawing.Point(424, 137)
         Me.Avatar.Name = "Avatar"
-        Me.Avatar.Size = New System.Drawing.Size(57, 57)
+        Me.Avatar.Size = New System.Drawing.Size(38, 37)
         Me.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.Avatar.TabIndex = 0
         Me.Avatar.TabStop = False
@@ -207,20 +194,21 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.AliceBlue
-        Me.Label1.Location = New System.Drawing.Point(298, 3)
+        Me.Label1.Location = New System.Drawing.Point(199, 2)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 20)
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Label1"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.BackgroundImage = Global.WindowsApp1.My.Resources.Resources.pokedownload
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.B1)
         Me.Controls.Add(Me.ScoreLabel)
@@ -236,7 +224,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Wall1)
         Me.Controls.Add(Me.Avatar)
         Me.DoubleBuffered = True
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
         Me.Text = "Sample"
         CType(Me.B1, System.ComponentModel.ISupportInitialize).EndInit()
