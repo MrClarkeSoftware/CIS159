@@ -11,7 +11,7 @@
     Private Sub pictureBox1_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox1.MouseMove
         If m_Previous IsNot Nothing Then
             Dim l As New Line(PictureBox1.Image, m_Previous, e.Location)
-            'l.Draw()
+            l.Pen = New Pen(Button1.BackColor)
             m_shapes.Add(l)
             PictureBox1.Invalidate()
             m_Previous = e.Location
@@ -36,5 +36,10 @@
         For Each s As Line In m_shapes
             s.Draw()
         Next
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ColorDialog1.ShowDialog()
+        Button1.BackColor = ColorDialog1.Color
     End Sub
 End Class
