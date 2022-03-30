@@ -23,6 +23,13 @@
                 d = New Rect(PictureBox1.Image, m_Previous, e.Location)
                 d.Pen = New Pen(c, w)
             End If
+            If type = "Picture" Then
+                d = New PBox(PictureBox1.Image, m_Previous, e.Location)
+                d.w = TrackBar1.Value
+                d.h = TrackBar1.Value
+
+                d.picture = PictureBox2.Image
+            End If
 
             m_shapes.Add(d)
             PictureBox1.Invalidate()
@@ -75,5 +82,17 @@
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         type = "Rectangle"
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+        type = "Picture"
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        OpenFileDialog1.ShowDialog()
+    End Sub
+
+    Private Sub OpenFileDialog1_FileOk(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
+        PictureBox2.Load(OpenFileDialog1.FileName)
     End Sub
 End Class
